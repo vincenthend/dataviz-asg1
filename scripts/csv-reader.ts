@@ -5,10 +5,10 @@ interface CsvRow {
   [key: string]: string;
 }
 
-function filterCsv(filePath: string, condition: (row: CsvRow) => boolean): void {
-  const outputStream = fs.createWriteStream('src/data/FilteredEntities.csv')
+function filterCsv(inputFile: string, outputFile: string, condition: (row: CsvRow) => boolean): void {
+  const outputStream = fs.createWriteStream(outputFile)
   let outputHeader = false
-  fs.createReadStream(filePath)
+  fs.createReadStream(inputFile)
     .pipe(csvParser())
     .on('data', (row: CsvRow) => {
       if(!outputHeader) {
@@ -29,13 +29,17 @@ function filterCsv(filePath: string, condition: (row: CsvRow) => boolean): void 
     outputStream.close()
 
   })
-    .on('error', (err) => {
-      outputStream.emit('error', err)
-    })
+  .on('error', (err) => {
+    outputStream.emit('error', err)
+  })
 }
 
 // Example usage
-const filePath = 'src/data/EntitiesRegisteredwithACRA.csv'
-const condition = (row: CsvRow) => new Date(row['uen_issue_date']).getFullYear() > 2019 // Replace with your actual condition
+const filePath = 'src/data/data.csv'
+const outputFile = 'src/data/FilteredEntities.csv'
+const condition = (row: CsvRow) => {
+  console.log(row['degree'])
+  return true
+}
 
-filterCsv(filePath, condition)
+filterCsv(filePath, outputFile, condition)

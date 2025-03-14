@@ -1,0 +1,7 @@
+.heatmapelmt {
+    cursor: pointer;
+}
+
+.heatmapelmt:hover{
+    filter: brightness(120%);
+}

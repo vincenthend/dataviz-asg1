@@ -12,15 +12,19 @@
     "filter-data": "npx tsx scripts/csv-reader.ts"
   },
   "dependencies": {
+    "@antv/g2plot": "^2.4.32",
     "antd": "^5",
     "d3": "^7.0.0",
     "ky": "^1.7.5",
+    "lodash": "^4.17.21",
+    "papaparse": "^5.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/d3": "^7.4.3",
+    "@types/papaparse": "^5.3.15",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -33,5 +37,6 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
-  }
+  },
+  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
 }
